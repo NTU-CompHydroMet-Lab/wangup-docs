@@ -1,0 +1,18 @@
+[project]
+name = "wangup-doc"
+version = "0.1.0"
+description = "Hydrometerology Lab Computing Documentation"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "mkdocs>=1.5.3",
+    "mkdocs-material>=9.5.0",
+    "pymdown-extensions>=10.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []
