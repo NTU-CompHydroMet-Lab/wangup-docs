@@ -1,7 +1,7 @@
 site_name: Hydrometerology Lab Computing Documentation
 site_description: Documentation for lab computing infrastructure and resources
 site_author: Hydrometerology Lab
-repo_url: https://github.com/yourusername/wangup-doc
+repo_url: https://github.com/NTU-CompHydroMet-Lab/wangup-docs
 edit_uri: edit/main/docs/
 
 theme:
@@ -100,4 +100,4 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername
+      link: https://github.com/NTU-CompHydroMet-Lab
