@@ -30,7 +30,7 @@ git clone <repository-url>
 cd wangup-doc
 
 # Install dependencies
-uv sync
+uv pip install -r pyproject.toml
 
 # Serve the documentation locally
 uv run mkdocs serve

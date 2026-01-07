@@ -9,10 +9,3 @@ dependencies = [
     "mkdocs-material>=9.5.0",
     "pymdown-extensions>=10.7",
 ]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.uv]
-dev-dependencies = []
