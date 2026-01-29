@@ -44,3 +44,4 @@ env/
 *.tmp
 *.bak
 *.log
+compose.yml
