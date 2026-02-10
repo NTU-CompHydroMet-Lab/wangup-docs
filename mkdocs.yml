@@ -1,6 +1,6 @@
-site_name: Hydrometerology Lab Computing Documentation
+site_name: WangUp Computing Documentation
 site_description: Documentation for lab computing infrastructure and resources
-site_author: Hydrometerology Lab
+site_author: Kilin
 repo_url: https://github.com/NTU-CompHydroMet-Lab/wangup-docs
 edit_uri: edit/main/docs/
 
@@ -14,6 +14,7 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+
     # Palette toggle for dark mode
     - scheme: slate
       primary: indigo
@@ -23,19 +24,25 @@ theme:
         name: Switch to light mode
   features:
     - navigation.tabs
-    - navigation.sections
+    - navigation.tabs.sticky
     - navigation.top
     - navigation.footer
+    - navigation.path
+    - navigation.expand
+    - navigation.indexes
     - search.suggest
     - search.highlight
     - content.code.copy
     - content.code.annotate
+    - content.tabs.link
+    - toc.follow
   icon:
     repo: fontawesome/brands/github
 
 plugins:
   - search
   - tags
+  - glightbox
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -46,6 +53,10 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.blocks.caption
   - admonition
   - attr_list
   - md_in_html
@@ -56,40 +67,46 @@ markdown_extensions:
 nav:
   - Home: index.md
 
-  - Getting Started:
-    - Welcome & Introduction: getting-started/welcome.md
-    - Why Linux?: getting-started/why-linux.md
-    - Hardware & Resources Overview: getting-started/hardware-overview.md
-    - Getting Your Account: getting-started/account-setup.md
+  - User Guide:
+    - Onboarding:
+      - Setting Up: user-guide/onboard/setting-up.md
+      - First Program: user-guide/onboard/first-program.md
+      - Environments: user-guide/onboard/environments.md
+      - Rules of Conduct: user-guide/onboard/rules-of-conduct.md
+    - Storage: 
+      - NAS Storage: user-guide/storage/nas.md
+      - Local Storage: user-guide/storage/local.md
+    - Tools:
+      - Python Tools: user-guide/tools/python.md
+      - Shell Tools: user-guide/tools/shell.md
+    - Containers:
+      - Introduction: user-guide/containers/intro.md
+      - Using Podman: user-guide/containers/podman.md
+      - Harbor Registry: user-guide/containers/harbor.md
+      - Building Containers: user-guide/containers/building.md
 
-  - Basic Usage:
-    - SSH & Remote Access: basic-usage/ssh-setup.md
-    - Using VSCode for Remote Development: basic-usage/vscode.md
-    - Linux Command Line Basics: basic-usage/linux-basics.md
-    - Data Storage & Organization: basic-usage/data-storage.md
+  - Infras:
+    - Services: infrastructures/services.md
+    - Computing: 
+      # - infrastructures/computing/index.md
+      - Server Specs: infrastructures/computing/computing-specs.md
+    - Storage: infrastructures/storage.md
+    - Network: infrastructures/network.md
+    - Power: infrastructures/power.md
 
-  - Computing Resources:
-    - Simple GPU Servers: computing/gpu-servers.md
-    - CPU-Intensive Server (Threadripper): computing/threadripper.md
-
-  - Containerization:
-    - Introduction to Containers: containers/intro.md
-    - Using Podman on Threadripper: containers/podman.md
-    - Harbor Registry: containers/harbor.md
-    - Building Your Containers: containers/building.md
-
-  - High-Performance Computing:
-    - Preparing for Taiwan HPC: hpc/preparing.md
-    - Using SLURM: hpc/slurm.md
+  - HPC:
+    - Overview: hpc/overview.md
+    - SLURM Job Scheduler: hpc/slurm.md
     - Environment Modules: hpc/modules.md
 
-  - Maintainer Documentation:
-    - Core Server Architecture: maintainer/core-server.md
-    - Server Administration: maintainer/server-admin.md
-    - Weather Sensor Systems: maintainer/sensors.md
-    - Service Dockerfiles & Design: maintainer/dockerfiles.md
+  - Maintainer:
+    - Server Architecture: maintainer/core-server.md
+    - Administration: 
+      - account: maintainer/account.md
+    - Weather Sensors: maintainer/sensors.md
+    - Docker Services: maintainer/dockerfiles.md
     - Storage Infrastructure: maintainer/storage.md
-    - Future Roadmap & Maintenance: maintainer/roadmap.md
+    - Roadmap: maintainer/roadmap.md
 
   - Reference:
     - Glossary: reference/glossary.md

@@ -45,3 +45,4 @@ env/
 *.bak
 *.log
 compose.yml
+mkdocs-material
