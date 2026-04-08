@@ -30,6 +30,7 @@ theme:
     - navigation.path
     - navigation.expand
     - navigation.indexes
+    - navigation.sections
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -43,6 +44,9 @@ plugins:
   - search
   - tags
   - glightbox
+  - privacy:
+      links_attr_map:
+        target: _blank
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -68,53 +72,57 @@ nav:
   - Home: index.md
 
   - User Guide:
+    - QuickStart: user-guide/quickstart.md
     - Onboarding:
-      - Setting Up: user-guide/onboard/setting-up.md
-      - First Program: user-guide/onboard/first-program.md
-      - Environments: user-guide/onboard/environments.md
+      - Account Setting Up: user-guide/onboard/setting-up.md
+      #- First Program: user-guide/onboard/first-program.md
+      #- Environments: user-guide/onboard/environments.md
       - Rules of Conduct: user-guide/onboard/rules-of-conduct.md
-    - Storage: 
-      - NAS Storage: user-guide/storage/nas.md
-      - Local Storage: user-guide/storage/local.md
-    - Tools:
-      - Python Tools: user-guide/tools/python.md
-      - Shell Tools: user-guide/tools/shell.md
-    - Containers:
-      - Introduction: user-guide/containers/intro.md
-      - Using Podman: user-guide/containers/podman.md
-      - Harbor Registry: user-guide/containers/harbor.md
-      - Building Containers: user-guide/containers/building.md
+    # - Storage: 
+    #   - NAS Storage: user-guide/storage/nas.md
+    #   - Local Storage: user-guide/storage/local.md
+    # - Tools:
+    #   - Python Tools: user-guide/tools/python.md
+    #   - Shell Tools: user-guide/tools/shell.md
+    # - Containers:
+    #   - Introduction: user-guide/containers/intro.md
+    #   - Using Podman: user-guide/containers/podman.md
+    #   - Harbor Registry: user-guide/containers/harbor.md
+    #   - Building Containers: user-guide/containers/building.md
 
   - Infras:
-    - Services: infrastructures/services.md
+    # - Services: infrastructures/services.md
     - Computing: 
       # - infrastructures/computing/index.md
       - Server Specs: infrastructures/computing/computing-specs.md
-    - Storage: infrastructures/storage.md
-    - Network: infrastructures/network.md
-    - Power: infrastructures/power.md
+    # - Storage: infrastructures/storage.md
+    # - Network: infrastructures/network.md
+    # - Power: infrastructures/power.md
 
-  - HPC:
-    - Overview: hpc/overview.md
-    - SLURM Job Scheduler: hpc/slurm.md
-    - Environment Modules: hpc/modules.md
+  # - HPC:
+  #   - Overview: hpc/overview.md
+  #   - SLURM Job Scheduler: hpc/slurm.md
+  #   - Environment Modules: hpc/modules.md
 
   - Maintainer:
     - Server Architecture: maintainer/core-server.md
     - Administration: 
       - account: maintainer/account.md
-    - Weather Sensors: maintainer/sensors.md
-    - Docker Services: maintainer/dockerfiles.md
-    - Storage Infrastructure: maintainer/storage.md
-    - Roadmap: maintainer/roadmap.md
+    #- Weather Sensors: maintainer/sensors.md
+    # - Docker Services: maintainer/dockerfiles.md
+    # - Storage Infrastructure: maintainer/storage.md
+    # - Roadmap: maintainer/roadmap.md
 
-  - Reference:
-    - Glossary: reference/glossary.md
-    - FAQ: reference/faq.md
-    - Quick Reference: reference/quick-ref.md
-    - External Resources: reference/resources.md
+  # - Reference:
+  #   - Glossary: reference/glossary.md
+  #   - FAQ: reference/faq.md
+  #   - Quick Reference: reference/quick-ref.md
+  #   - External Resources: reference/resources.md
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/NTU-CompHydroMet-Lab
+
+extra_css:
+  - stylesheets/extra.css

@@ -31,17 +31,36 @@ know this key is used for WangUp Servers.
 You should find two file under the `~/.ssh` directory. Which are `WangupServer.pub` and `WangupServer`.
 
 ### Upload your SSH key
-Login to the [Account UI](https://account.lab.wangup.org) using **Username** and **Password** we just set 
+Go to the [Account UI](https://account.lab.wangup.org) select the **WangUp** profile. Then login using **Username** and **Password** we just set 
 in the previous section.
+![LAM Login Page](lam-logging-in.png){ loading=lazy, align=right}
 
+Double click your account.
+![LAM Selecting Account](lam-selecting-account.png){ loading=lazy, align=right}
 
+Click the SSH public key extension
+![LAM Selecting SSH Key Extension](lam-selecting-ssh-extension.png){ loading=lazy, align=right}
 
+Paste your SSH public key here (The one file that have .pub suffix). If you want to upload another key, just click the green + button.
+![LAM Upload SSH public key](lam-upload-ssh-key.png){ loading=lazy, align=right}
+
+!!! note
+    The SSH public key is entire content of the `~/.ssh/WangupServer.pub`. If you follow this instruction to generate ssh key.
+    It will looks something like this:
+    ```text
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGmB9Vstb4iZg9fjrz6qqysuOvr+goxtvwL1FNbwBIsW dani@ntu-caece
+    ```
+    Different encryption method generate keys in different length. Make sure to paste the **Entire Content** of the public key file.
+
+Save the change. And you're done uploading the SSH public key. You can easily loggin in the server without using password.
+![LAM Saving Public Key](lam-saving-public-key.png){ loading=lazy, align=right}
 
 ### Initialize NAS storage
 Our NAS require user to login atleast one time to have their directory activated.
-Please visit our [**NAS Web UI**](https://wangup.synology.me:6110) and login with the
-`Username` and `Password` you set.
+Please visit the [**Synology Quick Connect**](https://quickconnect.to/) and enter our NAS ID `wangup` or `wangup26` and connect to it.
+![NAS Quick Connect](nas-quickconnection.png){ loading=lazy, align=right}
 
+Login with the `Username` and `Password` you set.
 ![NAS Login Page](nas-login-account.png){ loading=lazy, align=right}
 
 Follow the instruction to setup 2-factor authentication. 
@@ -57,6 +76,8 @@ Make sure there is **File Station** on the desktop and whether you can find your
 home directory as shown below.
 ![NAS home](nas-home-path.png){ loading=lazy }
 
+!!! note
+    This initialization need to be done on both `wangup` and `wangup26`.
 ---
 
 ## Login into server
