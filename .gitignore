@@ -25,7 +25,6 @@ wheels/
 
 # uv
 .venv/
-uv.lock
 
 # Virtual environments
 venv/
@@ -46,3 +45,4 @@ env/
 *.log
 compose.yml
 mkdocs-material
+.cache

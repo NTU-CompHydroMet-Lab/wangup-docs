@@ -11,7 +11,7 @@ hide:
   <p style="font-size: 1.25rem; color: var(--md-default-fg-color--light); max-width: 40rem; margin: 0 auto 2rem auto;">
     Complete documentation for lab computing infrastructure, HPC resources, and research workflows
   </p>
-  <a href="user-guide/onboard/setting-up/" class="md-button md-button--primary" style="margin: 0 0.5rem;">
+  <a href="user-guide/onboard/account/" class="md-button md-button--primary" style="margin: 0 0.5rem;">
     Get Started
   </a>
   <a href="user-guide/quick-reference/" class="md-button" style="margin: 0 0.5rem;">

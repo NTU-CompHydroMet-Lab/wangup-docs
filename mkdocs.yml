@@ -72,23 +72,25 @@ nav:
   - Home: index.md
 
   - User Guide:
-    - QuickStart: user-guide/quickstart.md
+    - Quick Reference: user-guide/quick-reference.md
+    - Tools: user-guide/tools.md 
+    - Rules of Conduct: user-guide/rules-of-conduct.md
     - Onboarding:
-      - Account Setting Up: user-guide/onboard/setting-up.md
+      - Account Registry: user-guide/onboard/account.md
+      - Environment: user-guide/onboard/environment.md
+      - Storage: user-guide/onboard/storage.md
+      - Development: user-guide/onboard/development.md
+
       #- First Program: user-guide/onboard/first-program.md
       #- Environments: user-guide/onboard/environments.md
-      - Rules of Conduct: user-guide/onboard/rules-of-conduct.md
-    # - Storage: 
-    #   - NAS Storage: user-guide/storage/nas.md
-    #   - Local Storage: user-guide/storage/local.md
-    # - Tools:
-    #   - Python Tools: user-guide/tools/python.md
-    #   - Shell Tools: user-guide/tools/shell.md
-    # - Containers:
-    #   - Introduction: user-guide/containers/intro.md
-    #   - Using Podman: user-guide/containers/podman.md
-    #   - Harbor Registry: user-guide/containers/harbor.md
-    #   - Building Containers: user-guide/containers/building.md
+    - Storage: 
+      - NAS Storage: user-guide/storage/nas.md
+      - Local Storage: user-guide/storage/local.md
+    - Containers:
+      - Introduction: user-guide/containers/intro.md
+      - Using Podman: user-guide/containers/podman.md
+      - Harbor Registry: user-guide/containers/harbor.md
+      - Building Containers: user-guide/containers/building.md
 
   - Infras:
     # - Services: infrastructures/services.md
@@ -99,10 +101,10 @@ nav:
     # - Network: infrastructures/network.md
     # - Power: infrastructures/power.md
 
-  # - HPC:
-  #   - Overview: hpc/overview.md
-  #   - SLURM Job Scheduler: hpc/slurm.md
-  #   - Environment Modules: hpc/modules.md
+  - HPC:
+    - Overview: hpc/overview.md
+    - SLURM Job Scheduler: hpc/slurm.md
+    - Environment Modules: hpc/modules.md
 
   - Maintainer:
     - Server Architecture: maintainer/core-server.md
