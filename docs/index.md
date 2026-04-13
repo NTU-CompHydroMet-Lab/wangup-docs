@@ -123,5 +123,5 @@ hide:
 
 <div style="text-align: center; padding: 2rem 0;">
   <h3>Need Help?</h3>
-  <p>Check the <a href="reference/faq/">FAQ</a> for common problems or contact the lab administrator</p>
+  <p>Check the <a href="user-guide/faq/">FAQ</a> for common problems or contact the lab administrator</p>
 </div>

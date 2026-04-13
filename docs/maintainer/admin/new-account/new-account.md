@@ -36,10 +36,13 @@ First, login to NAS as **`wangupad`**. Go to **`Control Panel`** > **`Domain/LDA
 
 ## Server configuration
 ### subuid/subgid for Podman
-User need to be granted access to a range of subuid/subgid. This require manual setting up in
- `/etc/subgid` and `/etc/subuid`. We do this using a script. Please execute this script to setup subuid/subgid.
+Users need a range of subuid/subgid for rootless Podman. Run the script on **every machine**:
 
-```apacheconf linenums="1" title="Generate subuid/subgid"
-sudo rm -rf
-ls -lah
+```console
+$ sudo <admin_home>/scripts/update_subids.sh
+Adding gisele (uid=10036): range 657719296-657784832
+Adding yayuchen (uid=10034): range 657588224-657653760
+Adding dani (uid=10035): range 657653760-657719296
 ```
+
+The script calculates each user's range automatically from their uid/gid.

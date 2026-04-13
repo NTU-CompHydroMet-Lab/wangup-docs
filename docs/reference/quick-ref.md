@@ -163,7 +163,7 @@ module purge               # Unload all
 | 2 | [To be added] | RTX 4090 | Heavy computation |
 | 3 | [To be added] | RTX 3090 | General GPU work |
 
-**Access**: Direct SSH, sudo available via dedicated account
+**Access**: Rootless Podman, no sudo
 
 ### Threadripper Server
 

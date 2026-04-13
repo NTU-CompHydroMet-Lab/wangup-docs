@@ -1,0 +1,23 @@
+graph LR
+    Internet((Internet))
+
+    Internet -->|"140.112.13.236"| up3080
+    Internet -->|"140.112.13.91"| up4090
+    Internet -->|"140.112.13.64"| up3090
+    Internet -->|"140.112.12.139"| DS923
+
+    subgraph compute["Compute"]
+        up3080["up3080\nRTX 3080 Ti"]
+        up4090["up4090\nRTX 4090"]
+        up3090["up3090\nRTX 3090"]
+        ripper["ripper\nThreadripper"]
+    end
+
+    subgraph storage["Storage"]
+        DS923["DS923+\n83.7TB\n192.168.250.139"]
+        DS1823["DS1823xs+\n35TB\n192.168.250.182"]
+    end
+
+    up3090 & up4090 -.->|ProxyJump| ripper
+    DS923  -->|"NFS /home/NAS/homes, /home/NAS/data"| up3080 & up4090 & up3090 & ripper
+    DS1823 -->|"NFS /home/NAS/house"| up3080 & up4090 & up3090 & ripper

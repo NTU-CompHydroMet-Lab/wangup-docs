@@ -122,6 +122,17 @@ Host ripper
     ThreadRipper server doesn't have external IP. So we need to access it via any machine 
     with a external IP. You can use either `up3090` or `up4090` as proxyjump.
 
+Before SSHing in for the first time, copy your public key to each server's `authorized_keys`.
+This is required for SSH access inside containers, which cannot authenticate via LDAP.
+
+```bash linenums="1"
+ssh-copy-id -f -i ~/.ssh/WangupServer.pub up3080
+ssh-copy-id -f -i ~/.ssh/WangupServer.pub up3090
+ssh-copy-id -f -i ~/.ssh/WangupServer.pub up4090
+ssh-copy-id -f -i ~/.ssh/WangupServer.pub ripper
+```
+
+
 Open terminal and ssh into servers repsectively.
 
 === "up3080"

@@ -9,8 +9,8 @@ Guide to storing and managing data on lab NAS.
 
 | Location | Path | Purpose | Backup | Quota |
 |----------|------|---------|--------|-------|
-| Home | `/home/NAS/homes/<username>` | Personal code, configs | Yes | 100GB |
-| Data | `/home/NAS/Data/` | Shared datasets | Yes | Shared |
+| Home | `/home/NAS/homes/<username>` | Personal code, configs | No | 100GB |
+| Data | `/home/NAS/Data/` | Shared datasets | No | Shared |
 | Scratch | `/home/<username>` | Temporary files | No | - |
 
 **Important:** Only `/home/NAS/` paths are persistent and backed up.

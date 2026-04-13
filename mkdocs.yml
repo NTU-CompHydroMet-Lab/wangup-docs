@@ -51,9 +51,15 @@ plugins:
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.details
@@ -73,9 +79,10 @@ nav:
 
   - User Guide:
     - Quick Reference: user-guide/quick-reference.md
-    - Tools: user-guide/tools.md 
+    - Tools: user-guide/tools.md
+    - FAQ: user-guide/faq.md
     - Rules of Conduct: user-guide/rules-of-conduct.md
-    - Onboarding:
+    - New Users:
       - Account Registry: user-guide/onboard/account.md
       - Environment: user-guide/onboard/environment.md
       - Storage: user-guide/onboard/storage.md
@@ -88,18 +95,13 @@ nav:
       - Local Storage: user-guide/storage/local.md
     - Containers:
       - Introduction: user-guide/containers/intro.md
+      - Lab Images: user-guide/containers/lab-images.md
       - Using Podman: user-guide/containers/podman.md
       - Harbor Registry: user-guide/containers/harbor.md
       - Building Containers: user-guide/containers/building.md
 
   - Infras:
-    # - Services: infrastructures/services.md
-    - Computing: 
-      # - infrastructures/computing/index.md
-      - Server Specs: infrastructures/computing/computing-specs.md
-    # - Storage: infrastructures/storage.md
-    # - Network: infrastructures/network.md
-    # - Power: infrastructures/power.md
+    - Specification: infrastructures/computing-specs.md
 
   - HPC:
     - Overview: hpc/overview.md
@@ -107,9 +109,46 @@ nav:
     - Environment Modules: hpc/modules.md
 
   - Maintainer:
-    - Server Architecture: maintainer/core-server.md
-    - Administration: 
-      - account: maintainer/account.md
+    - Overview: maintainer/overview/overview.md
+    - Administration:
+      - Users:
+        - New Account: maintainer/admin/new-account/new-account.md
+        - Remove Account: maintainer/admin/users/remove-account.md
+        - Reset Password: maintainer/admin/users/reset-password.md
+      - Infrastructure:
+        - New Compute Node: maintainer/admin/new-node/new-node.md
+        - OS Installation: maintainer/admin/infrastructure/os-install.md
+        - New NAS: maintainer/admin/new-nas/new-nas.md
+        - Migrate User Home: maintainer/admin/infrastructure/migrate-user-home.md
+      - Lab Images:
+        - Publish New Version: maintainer/admin/lab-images/publish.md
+      - Services:
+        - Add Traefik Route: maintainer/admin/services/add-traefik-route.md
+        - Add Harbor Project: maintainer/admin/services/add-harbor-project.md
+      - Security: maintainer/admin/security/security.md
+    - Services:
+      - Synology NAS: maintainer/services/nas/nas-webui.md
+      - LDAP Server: maintainer/services/ldap/ldap-server.md
+      - Discord Bot: maintainer/services/discord/discord.md
+      - Harbor Registry: maintainer/services/harbor/harbor-registry.md
+      - Influx DB: maintainer/services/influx/influx.md
+      - Postgres DB: maintainer/services/postgres/pg.md
+      - EMQX Broker: maintainer/services/emqx/emqx.md
+      - Traefik: maintainer/services/traefik/traefik.md
+    - Cloud:
+      - Google GCP: maintainer/cloud/gcp/gcp.md
+      - Cloudflare: maintainer/cloud/cloudflare/cloudflare.md
+      - SquareSpace: maintainer/cloud/sspace/sspace.md
+    - Hardwares:
+      - Machines: maintainer/hardwares/machines/machines.md
+      - Sensors:
+        - OTT Parsivel2: maintainer/hardwares/sensors/parsivel.md
+        - OTT Pluvio L: maintainer/hardwares/sensors/pluviol.md
+        - OTT Pluvio S: maintainer/hardwares/sensors/pluvios.md
+        - Lufft WS100: maintainer/hardwares/sensors/ws100.md
+        - Theis Ultrasonic 3D: maintainer/hardwares/sensors/ultra.md
+      - Power (UPS): maintainer/hardwares/ups/ups.md
+      - Network: maintainer/hardwares/network/network.md
     #- Weather Sensors: maintainer/sensors.md
     # - Docker Services: maintainer/dockerfiles.md
     # - Storage Infrastructure: maintainer/storage.md
@@ -125,6 +164,9 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/NTU-CompHydroMet-Lab
+  annotate:
+    dockerfile: [.s2] 
+    json: [.s2]
 
 extra_css:
   - stylesheets/extra.css

@@ -1,9 +1,9 @@
-# Using Podman on Threadripper
+# Using Podman
 🚧
 
 ## Introduction
 
-This guide covers using rootless Podman on the Threadripper server for CPU-intensive tasks.
+This guide covers using rootless Podman on lab servers. All machines run Podman — there is no sudo access for regular users.
 
 ## Basic Podman Commands
 

@@ -1,5 +1,7 @@
 # Preparing for Taiwan HPC
 
+🚧
+
 ## Introduction
 
 Taiwan's national HPC systems provide massive computational resources for research. This guide helps you transition from lab servers to HPC.
@@ -15,7 +17,7 @@ Taiwan's national HPC systems provide massive computational resources for resear
 
 ## How Containers Help
 
-If you've been using containers on Threadripper, transitioning to HPC is much easier:
+If you've been using containers on the lab servers, transitioning to HPC is much easier:
 
 1. **Same Environment**: Your container runs the same way on HPC
 2. **Tested Workflow**: You've already debugged on lab servers

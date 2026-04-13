@@ -12,7 +12,7 @@ NAS provides persistent, backed-up storage shared across all servers.
 | Feature | Value |
 |---------|-------|
 | Path | `/home/NAS/homes/<username>` |
-| Backup | Yes (daily) |
+| Backup | No |
 | Quota | 100GB per user |
 | Shared | Across all servers |
 | Speed | Network speed (~100MB/s) |

@@ -111,19 +111,7 @@ Each user gets:
 
 ## Sudo Access Management
 
-### GPU Servers
-
-GPU servers have a dedicated sudo account that students can access:
-
-[Content to be added]
-
-- How the sudo account is configured
-- How users access it
-- Limitations and restrictions
-
-### Threadripper
-
-No sudo access for regular users. Rootless Podman is used instead.
+No sudo access for regular users on any machine. All servers use rootless Podman for container and software management.
 
 ## GPU Management
 

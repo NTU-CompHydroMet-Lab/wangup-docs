@@ -51,6 +51,8 @@ tmux attach -t work     # Reconnect later
 
 ## GPUs
 
+Only some servers have GPUs. They are for proof-of-concept work — not large-scale training. For serious compute, use [NCHC HPC](../../hpc/overview.md).
+
 Check what's available before starting a job:
 
 ```bash linenums="1"
