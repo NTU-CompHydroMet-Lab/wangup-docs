@@ -54,7 +54,8 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      base_path: docs
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -79,26 +80,33 @@ nav:
 
   - User Guide:
     - Quick Reference: user-guide/quick-reference.md
-    - Tools: user-guide/tools.md
+    # - Tools: user-guide/tools.md
     - FAQ: user-guide/faq.md
-    - Rules of Conduct: user-guide/rules-of-conduct.md
+    # - Rules of Conduct: user-guide/rules-of-conduct.md
     - New Users:
       - Account Registry: user-guide/onboard/account.md
       - Environment: user-guide/onboard/environment.md
       - Storage: user-guide/onboard/storage.md
       - Development: user-guide/onboard/development.md
-
       #- First Program: user-guide/onboard/first-program.md
       #- Environments: user-guide/onboard/environments.md
-    - Storage: 
-      - NAS Storage: user-guide/storage/nas.md
-      - Local Storage: user-guide/storage/local.md
     - Containers:
       - Introduction: user-guide/containers/intro.md
-      - Lab Images: user-guide/containers/lab-images.md
-      - Using Podman: user-guide/containers/podman.md
-      - Harbor Registry: user-guide/containers/harbor.md
-      - Building Containers: user-guide/containers/building.md
+      - Images: user-guide/containers/lab-images.md
+      - Using Podman: user-guide/containers/use-podman.md
+      # - Harbor Registry: user-guide/containers/harbor.md
+      - Building Images: user-guide/containers/building.md
+    - Storage:
+      - Overview: user-guide/storage/overview.md
+      - Shared Datasets: user-guide/storage/datasets.md
+      - Synology Web UI: user-guide/storage/synology.md
+    - Services:
+      - Github Organization: user-guide/services/github.md
+      - Discord Bot: user-guide/services/discord.md
+      - Harbor Registry: user-guide/services/harbor.md
+      - Account Management: user-guide/services/ldap.md
+      - Synology Web UI: user-guide/storage/synology.md
+      - InfluxDB:  user-guide/service/influxdb.md
 
   - Infras:
     - Specification: infrastructures/computing-specs.md
@@ -110,6 +118,7 @@ nav:
 
   - Maintainer:
     - Overview: maintainer/overview/overview.md
+    - Team: maintainer/team.md
     - Administration:
       - Users:
         - New Account: maintainer/admin/new-account/new-account.md

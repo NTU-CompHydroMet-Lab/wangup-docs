@@ -61,4 +61,4 @@ Store code and results on NAS. Use local for temporary files or active training 
 
 ---
 
-For quota management and transfer tips, see [NAS Storage](../storage/nas.md).
+For quota management and transfer tips, see [Storage Overview](../storage/overview.md).

@@ -1,10 +1,19 @@
 # Introduction to Containers
 
-Containers let you run an isolated environment with its own OS, tools, and dependencies — without affecting the host system. On our servers, this is also how you get root access.
+Containers let you run an isolated environment with its own OS, tools, and 
+dependencies — without affecting the host system. On our servers, this is also 
+how you get root access.
 
+Already familiar with containers? Jump to the [Quick Reference](../quick-reference.md) for commands
+, image addresses, and service links.
+
+If you are totally new to container. Check [Docker Tutorial](https://docs.docker.com/get-started/introduction/)
+for a comprenehsive tutorial.
 ## What Are Containers?
 
-Containers are lightweight, portable packages that include your application and all its dependencies. Think of them as a complete computing environment that you can run anywhere.
+Containers are lightweight, portable packages that include your application and 
+all its dependencies. Think of them as a complete computing environment that 
+you can run anywhere.
 
 ![VM vs Container](con-vs-vm.png)
 
@@ -21,7 +30,6 @@ Installed something wrong? The container is disposable — throw it away and sta
     podman run -d --name mycontainer ...
     ```
 
-    See [podman run documentation](https://docs.podman.io/en/latest/markdown/podman-run.1.html).
 
 === "podman compose"
 
@@ -30,7 +38,7 @@ Installed something wrong? The container is disposable — throw it away and sta
     podman compose up -d
     ```
 
-    See [podman compose documentation](https://docs.podman.io/en/latest/markdown/podman-compose.1.html).
+See [podman compose documentation](https://docs.podman.io/en/latest/markdown/podman-compose.1.html) or [podman run documentation](https://docs.podman.io/en/latest/markdown/podman-run.1.html).
 
 The new container is identical to the original image — no trace of whatever you broke.
 
@@ -118,4 +126,4 @@ Instead of Docker Hub, we run our own private registry using Harbor at `registry
 
 ---
 
-**Next Step**: Learn about [Using Podman](podman.md)
+**Next Step**: Learn about [Using Podman](use-podman.md)

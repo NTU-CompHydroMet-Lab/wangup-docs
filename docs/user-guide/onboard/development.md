@@ -80,6 +80,7 @@ The compose file below uses this configuration as an example:
 | Hostname | `ripper-pod` | Name the container calls itself — useful for identification in terminal |
 | Working directory | `/workspace` | Directory you land in when you enter the container |
 
+
 Copy the following into `compose.yml`. Edit before starting:
 
 - **`container_name`** — must be unique among your own containers. Use something
@@ -98,53 +99,10 @@ other container on the machine. Pick any unused port in the `10000–65535` rang
     podman ps -a
     ```
 
-```yaml linenums="1" title="compose.yml"
-services:
-  dev:
-    image: registry.lab.wangup.org/kilin/devel:0.6-cuda13.1.1
-    container_name: example-container # (1)!
-    hostname: ripper-pod
-    init: true
-    userns_mode: "keep-id"
-    group_add:
-      - keep-groups
+!!! warning "This may be outdated"
+    The compose file shown here is for reference only. For the latest version and a ready-to-copy file, see the [containerfiles](https://github.com/NTU-CompHydroMet-Lab/containerfiles) repository.
 
-    ports:
-      - "12345:22" # (2)!
-
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - TERM=xterm-kitty
-
-    volumes:
-      - ${HOME}:${HOME}                     # User home
-      - .:/workspace                        # Project directory
-      - /home/NAS/data:/home/NAS/data:ro    # NAS data
-      - /home/NAS/homes:/home/NAS/homes     # NAS home
-      - /home/NAS/house:/home/NAS/house     # Big NAS home
-      - ${HOME}/.cache/uv:/opt/uv-cache     # UV cache
-      - ${HOME}/.ssh/container-keys:/etc/ssh/host_keys
-
-    working_dir: /workspace
-
-    command: >
-      sh -c "
-        if [ ! -f /etc/ssh/host_keys/ssh_host_rsa_key ]; then
-          sudo ssh-keygen -A &&
-          sudo cp /etc/ssh/ssh_host_* /etc/ssh/host_keys/
-        else
-          sudo cp /etc/ssh/host_keys/ssh_host_* /etc/ssh/
-        fi &&
-        sudo /usr/sbin/sshd -D -e
-      "
-    devices:
-      - nvidia.com/gpu=all
-```
-
-1. Must be unique among your own containers. Use something descriptive, e.g. `yourname-dev`.
-2. The host port (left side of `:`). Must not conflict with any other container 
-on the machine. Pick any unused port in the `10000–65535` range.
+--8<-- "snippets/compose-dev.md"
 ### 3. Start the container
 
 In `~/myproject`, execute following command to start the container.
@@ -213,4 +171,4 @@ Host mycontainer
 
 You're all set. Your container is running and you can start working.
 
-For more on managing containers — running multiple containers, building your own image, or pushing to the registry — see [Using Podman](../containers/podman.md).
+For the full reference on running, interacting with, and managing containers, see [Using Podman](../containers/use-podman.md).
