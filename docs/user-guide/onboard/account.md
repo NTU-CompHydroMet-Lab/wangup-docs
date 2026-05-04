@@ -99,22 +99,22 @@ Change the **`User`** to your own username.
 Host up3080 
     HostName 140.112.13.236
     User dani 
-    IdentityFile WangupServer 
+    IdentityFile ~/.ssh/WangupServer 
 
 Host up3090 
     HostName 140.112.13.64
     User dani 
-    IdentityFile WangupServer 
+    IdentityFile ~/.ssh/WangupServer 
 
 Host up4090 
     HostName 140.112.13.91
     User dani 
-    IdentityFile WangupServer 
+    IdentityFile ~/.ssh/WangupServer 
 
 Host ripper
     HostName 192.168.250.100
     User dani
-    IdentityFile WangupServer
+    IdentityFile ~/.ssh/WangupServer 
     ProxyJump up3090
 ```
 
