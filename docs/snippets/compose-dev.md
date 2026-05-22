@@ -6,7 +6,7 @@ services:
   x-podman:
     in_pod: false
   dev:
-    image: registry.lab.wangup.org/kilin/devel:0.6-cuda13.1.1
+    image: registry.lab.wangup.org/kilin/devel:0.13-cuda13.1.1
     container_name: example-container # (1)!
     hostname: ripper-pod # (2)!
     init: true # (3)!
