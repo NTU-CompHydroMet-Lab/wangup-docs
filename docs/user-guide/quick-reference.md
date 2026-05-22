@@ -56,5 +56,5 @@
 | Harbor Registry | [registry.lab.wangup.org](https://registry.lab.wangup.org) | [Harbor](services/harbor.md) |
 | GitHub Organization | [NTU-CompHydroMet-Lab](https://github.com/NTU-CompHydroMet-Lab) | [GitHub](services/github.md) |
 | Account Management (LDAP) | [account.lab.wangup.org](https://account.lab.wangup.org) | [LDAP](services/ldap.md) |
-| Synology NAS wangup | — | [Synology](storage/synology.md) |
-| Synology NAS wangup26  
+| Synology NAS wangup | [QuickConnect](https://wangup.quickconnect.to) | [Synology](storage/synology.md) |
+| Synology NAS wangup26 | [QuickConnect](https://wangup26.tw6.quickconnect.to/) | [Synology](storage/synology.md) |

@@ -41,7 +41,7 @@ CUDA and framework inclusions.
 | [`python`](https://hub.docker.com/_/python) | Docker Hub | Python only, no system bloat; good for pure Python work |
 | [`mcr.microsoft.com/devcontainers/universal`](https://mcr.microsoft.com/en-us/artifact/mar/devcontainers/universal/about) | MCR | Microsoft's dev container with many languages pre-installed |
 
-!!! info
+!!! note 
     For research and development on lab servers, the [lab images](#lab-images) are pre-built on the NVIDIA CUDA base and ready to use without any configuration.
 
 ### Service Images
@@ -300,8 +300,5 @@ CMD ["/bin/zsh"]
 ## Recommended Compose File
 
 The lab images are designed to run with the following compose setup — SSH server, GPU passthrough, NAS mounts, and persistent host keys all wired up.
-
-!!! warning "This may be outdated"
-    For the latest version and a ready-to-copy file, see the [containerfiles](https://github.com/NTU-CompHydroMet-Lab/containerfiles) repository.
 
 --8<-- "snippets/compose-dev.md"

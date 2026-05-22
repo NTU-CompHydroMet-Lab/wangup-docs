@@ -21,7 +21,7 @@ podman login registry.lab.wangup.org   # lab registry
 podman login nvcr.io                   # NVIDIA NGC
 ```
 
-!!! info
+!!! note 
     The `Username` and `Password` is the same as server account
 
 ![harbor login](harbor-login.png)

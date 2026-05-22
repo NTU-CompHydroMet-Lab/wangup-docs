@@ -11,6 +11,9 @@ Please contact admin for applying new account. You need to provide **Username** 
 We primarily remote work using [**SSH**](https://www.cloudflare.com/zh-tw/learning/access-management/what-is-ssh/).
 To have full features of our server. You need to **provide your SSH key** and **login to NAS UI**.
 
+!!! warning "Windows Users"
+    The following steps require a POSIX-compliant shell. Use [Git Bash](https://git-scm.com/downloads) — do not use PowerShell or Command Prompt.
+
 ### Generate ssh key
 Execute following command to get a new pair of SSH key named `WangupServer` under `#!bash ~/.ssh` directory 
 on your own personal computer. This key will be use to connect to the servers.

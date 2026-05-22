@@ -90,24 +90,32 @@ descriptive, e.g. `yourname-dev`.
 other container on the machine. Pick any unused port in the `10000–65535` range.
 
 !!! note "Check before you pick"
-    Verify the port is free:
+    1. Verify the port is free:
     ```bash
     ss -tlnp | grep :<port>
     ```
-    Check your existing container names:
+    If this command output nothing. The port is free. 
+      
+    2. Check your existing container names:
     ```bash
     podman ps -a
     ```
 
-!!! warning "This may be outdated"
-    The compose file shown here is for reference only. For the latest version and a ready-to-copy file, see the [containerfiles](https://github.com/NTU-CompHydroMet-Lab/containerfiles) repository.
-
 --8<-- "snippets/compose-dev.md"
 ### 3. Start the container
 
+!!! note
+    Unlike Docker, Podman is daemonless and relies on [systemd](https://docs.oracle.com/en/learn/ol-podman-lingering/index.html) to manage container lifecycle.
+
+Enable linger so your containers keep running after you log out.
+
+```bash linenums="1"
+loginctl enable-linger $USER
+```
+
 In `~/myproject`, execute following command to start the container.
 
-```bash
+```bash linenums="1"
 podman compose up -d
 ```
 
