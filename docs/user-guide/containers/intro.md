@@ -87,9 +87,9 @@ from the same image simultaneously without interfering with each other.
 A registry is a server that stores and distributes images — the equivalent of 
 GitHub, but for containers. You **push** an image to share it and **pull** an 
 image to use it on any machine. Images are identified by a full address: 
-`registry/project/name:tag` (e.g., `harbor.lab.wangup.org/lab/base:cuda12`). 
+`registry/project/name:tag` (e.g., `registry.lab.wangup.org/lab/base:cuda12`). 
 [Docker Hub](https://hub.docker.com) is the public default; we run a private 
-registry using [Harbor](harbor.md) for lab images.
+registry using [Harbor](../services/harbor.md) for lab images.
 
 ![Container concept relationship](con-relationship.svg)
 
@@ -110,7 +110,7 @@ commands look nearly identical, so most Docker tutorials work by replacing
     loginctl enable-linger $USER
     ```
 
-Podman is highly compatible with Docker but not 100%. Common commands (`run`, `pull`, `push`, `build`, `exec`) behave the same. What doesn't work: Docker Swarm commands (`docker swarm`, `docker stack`) have no Podman equivalent, and `podman compose` is a separate tool that covers most but not all `docker compose` features. See [Using Podman](podman.md) for details.
+Podman is highly compatible with Docker but not 100%. Common commands (`run`, `pull`, `push`, `build`, `exec`) behave the same. What doesn't work: Docker Swarm commands (`docker swarm`, `docker stack`) have no Podman equivalent, and `podman compose` is a separate tool that covers most but not all `docker compose` features. See [Using Podman](use-podman.md) for details.
 
 ## How We Use Containers in the Lab
 
@@ -122,7 +122,7 @@ NCHC also requires containers, but uses **Singularity/Apptainer** instead of Pod
 
 ## Our Harbor Registry
 
-Instead of Docker Hub, we run our own private registry using Harbor at `registry.lab.wangup.org`. It hosts curated base images for common lab tasks and private project images. See [Harbor Registry](harbor.md) for usage.
+Instead of Docker Hub, we run our own private registry using Harbor at `registry.lab.wangup.org`. It hosts curated base images for common lab tasks and private project images. See [Harbor Registry](../services/harbor.md) for usage.
 
 ---
 

@@ -13,7 +13,7 @@ This page covers only what's specific to building on top of the lab infrastructu
 ## Start from the Lab Base
 
 ```dockerfile linenums="1" title="Containerfile"
-FROM registry.lab.wangup.org/library/devel:0.6-cuda13.1.1
+FROM registry.lab.wangup.org/library/devel:0.9-cuda13.1.1
 ```
 
 Our lab base image make all infra work seamlessly. Including CUDA, NAS, User, 
@@ -49,7 +49,7 @@ This overrides `UV_CACHE_DIR` to point at your host's cache on the server's loca
 ### Workflow
 
 ```bash linenums="1" title="In the Container"
-cd /workspace          # your project, mounted from host
+cd ~/projects/myproject   # your project on NAS, mounted at its real path
 uv sync                # install from uv.lock into /opt/venv using local cache
 uv run python train.py # or just: python train.py
 ```
@@ -108,7 +108,7 @@ To run your image, use the [recommended compose file](lab-images.md#recommended-
 A research image that adds system-level geospatial libraries on top of the lab base. Python packages are not baked in — they are managed per-project with `uv sync` at runtime.
 
 ```dockerfile linenums="1"
-FROM registry.lab.wangup.org/library/devel:0.6-cuda13.1.1
+FROM registry.lab.wangup.org/library/devel:0.9-cuda13.1.1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgdal-dev \

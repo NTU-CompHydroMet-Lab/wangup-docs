@@ -15,8 +15,8 @@
 
 | Image | Address |
 |-------|---------|
-| Base | `registry.lab.wangup.org/library/devel:0.6-cuda13.1.1` |
-| Maintainer | `registry.lab.wangup.org/kilin/devel:0.6-cuda13.1.1` |
+| Base | `registry.lab.wangup.org/library/devel:0.9-cuda13.1.1` |
+| Maintainer | `registry.lab.wangup.org/kilin/devel:0.17-cuda13.1.1` |
 
 **Common commands**
 

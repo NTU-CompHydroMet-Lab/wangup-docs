@@ -119,7 +119,7 @@
 ??? question "My container can't access my files. What's wrong?"
     You need to mount directories explicitly with the `-v` flag:
     ```bash
-    podman run -v /home/NAS/homes/username:/workspace:Z ...
+    podman run -v /home/NAS/house/username:/home/NAS/house/username:Z ...
     ```
     The `:Z` flag sets the correct SELinux label. Without it, permission errors occur even if the path is correct.
 

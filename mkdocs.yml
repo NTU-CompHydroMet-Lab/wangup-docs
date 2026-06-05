@@ -80,6 +80,7 @@ nav:
 
   - User Guide:
     - Quick Reference: user-guide/quick-reference.md
+    - Specs: infrastructures/computing-specs.md
     - Tools: user-guide/tools.md
     - FAQ: user-guide/faq.md
     # - Rules of Conduct: user-guide/rules-of-conduct.md
@@ -99,22 +100,31 @@ nav:
       - Overview: user-guide/storage/overview.md
       - Shared Datasets: user-guide/storage/datasets.md
       - Synology Web UI: user-guide/storage/synology.md
-    - Services:
-      - Github Organization: user-guide/services/github.md
-      - Discord Bot: user-guide/services/discord.md
-      - Harbor Registry: user-guide/services/harbor.md
-      - Account Management: user-guide/services/ldap.md
-      - Synology Web UI: user-guide/storage/synology.md
-      - InfluxDB:  user-guide/service/influxdb.md
+    # - Services:
+    #   - Github Organization: user-guide/services/github.md
+    #   - Discord Bot: user-guide/services/discord.md
+    #   - Harbor Registry: user-guide/services/harbor.md
+    #   - Account Management: user-guide/services/ldap.md
+    #   - Synology Web UI: user-guide/storage/synology.md
+    #   - InfluxDB:  user-guide/service/influxdb.md
 
-  - Infras:
+  # - Infras:
     - Specification: infrastructures/computing-specs.md
 
   - HPC:
     - Overview: hpc/overview.md
-    # - Nano5:  
-    # - SLURM Job Scheduler: hpc/slurm.md
-    # - Environment Modules: hpc/modules.md
+    - iService: hpc/iservice.md
+    - Slurm: hpc/slurm.md
+    - Nano4:
+      - Overview: hpc/nano4/overview.md
+    - Nano5:
+      - Overview: hpc/nano5/overview.md
+    - Forerunner1:
+      - Overview: hpc/f1/overview.md
+    - twnia3:
+      - Overview: hpc/twnia3/overview.md
+    - TWCC:
+      - Overview: hpc/twcc/overview.md
 
   - Maintainer:
     - Overview: maintainer/overview/overview.md

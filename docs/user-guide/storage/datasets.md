@@ -2,7 +2,7 @@
 
 Shared datasets are stored on DS923+ at `/home/NAS/data` and mounted read-only on all servers.
 
-!!! warning "Never copy datasets to your home directory"
+!!! warning "Never copy datasets to your local home directory"
     Datasets are large. Copying them wastes quota and NAS space. Reference them directly by path in your scripts.
 
 ---

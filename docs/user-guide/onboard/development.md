@@ -16,6 +16,9 @@ ln -s /home/NAS/house/$USER/projects ~/projects
 ln -s /home/NAS/data ~/datasets
 ```
 
+!!! note
+    This is just an example. Link your own files and dirs.
+
 ---
 
 ## VSCode Remote
@@ -29,9 +32,9 @@ Connect using the SSH config you set up in [Account Registry](account.md#login-i
 3. Select a server (e.g. `ripper`)
 4. Open your project directory as your workspace
 
-Done. You can start programming.
-
 ![Dev in VSCode](dev-vscode.png)
+
+You are on the host now. You can do some light text editing work or simple scripting. Use container for complex usage or sudo permission.
 
 ---
 
@@ -59,12 +62,12 @@ Containers give you full root access and an isolated environment. The lab provid
 
     ![Terminal podman login](con-term-podman-login.png)
 
-#### Try the image
+### 2. Try the image
 
 Run the base image directly to look around:
 
 ```bash linenums="1"
-podman run --rm -it registry.lab.wangup.org/kilin/devel:0.13-cuda13.1.1
+podman run --rm -it registry.lab.wangup.org/kilin/devel:0.17-cuda13.1.1
 ```
 
 You land as `root` inside the container, with CUDA, Python, and the lab tools ready. Do whatever you want — it's fully isolated from the host. Type `exit` to leave; `--rm` then deletes the container, so nothing you did persists.
@@ -86,11 +89,11 @@ The compose file below uses this configuration as an example:
 | Field | Value | Description |
 |-------|-------|-------------|
 | Machine | `ripper` | Server you're running on — affects `hostname` and which GPU to expose |
-| Image | `kilin/devel:0.13-cuda13.1.1` | Lab image to use. See [Lab Images](../containers/lab-images.md) |
+| Image | `kilin/devel:0.17-cuda13.1.1` | Lab image to use. See [Lab Images](../containers/lab-images.md) |
 | Container name | `example-container` | Your name for this container |
 | Exposed port | `12345` | Host port that maps to SSH inside the container |
 | Hostname | `ripper-pod` | Name the container calls itself — useful for identification in terminal |
-| Working directory | `/workspace` | Directory you land in when you enter the container |
+| Working directory | `${HOME}` | Where you land in the container — your project sits at its real path, e.g. `~/projects/myproject` |
 
 
 Copy the following into `compose.yml`. Edit before starting:
@@ -167,7 +170,7 @@ Host mycontainer
 - **`Port`** — matches the exposed port in `compose.yml`.
 - **`ProxyJump`** — `ripper` has no public IP. Traffic is tunneled through `up3090` (or `up3080`) to reach the internal network. `up3090` must already be in your SSH config.
 
-### 4. Connect
+### 6. Connect
 
 === "VSCode"
 
@@ -187,8 +190,29 @@ Host mycontainer
     The Powerlevel10k wizard will appear on first login. Follow the prompts to configure your terminal style. Run `p10k configure` to redo it later.
     ![Kilin Image First Login](con-kilinimage-firstlogin.png)
 
+### 7. Install your dependencies
+
+Inside the container you have full root. Install what your project needs:
+
+```bash linenums="1"
+uv sync                                          # Python deps from uv.lock into /opt/venv
+sudo apt update && sudo apt install <package>    # system packages
+```
+
+`uv sync` installs into `/opt/venv` on the host's local disk — fast imports, rebuilt in seconds from your `uv.lock`. `apt` packages live in the container's writable layer and disappear when the container is removed; your project files don't, because they're mounted from NAS at their real path. For dependencies you want every time, bake them into your image — see [Building Images](../containers/building.md).
+
 ---
 
 You're all set. Your container is running and you can start working.
+
+## Stopping and restarting
+
+Stop and remove the container from your project directory:
+
+```bash linenums="1"
+podman compose down
+```
+
+Your project files are safe — they're mounted from NAS at their real path, not stored in the container. The container's writable layer, including `/opt/venv` and any `apt` packages, is discarded. Start again with `podman compose up -d`, then re-run `uv sync` to rebuild the environment.
 
 For the full reference on running, interacting with, and managing containers, see [Using Podman](../containers/use-podman.md).

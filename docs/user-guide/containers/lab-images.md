@@ -10,7 +10,7 @@ An image is the blueprint your container runs from — OS, packages, tools, and 
 |----------|-------------|
 | [Lab Harbor](https://registry.lab.wangup.org) | Lab base images, personal images |
 | [NVIDIA NGC](https://catalog.ngc.nvidia.com)| Official CUDA, TensorRT, PyTorch, cuDNN images |
-| [Docker Hub](https://hub.docker.io) (default) | General-purpose public images, official distros |
+| [Docker Hub](https://hub.docker.com) (default) | General-purpose public images, official distros |
 | [GitHub Container Registry](https://ghcr.io) | Open source project images |
 | [Microsoft Container Registry](https://mcr.microsoft.com) | Official Microsoft images, VS Code dev containers |
 
@@ -134,7 +134,7 @@ publishes a personal image (`kilin/devel`) built on top of it.
 
 | Image | Based on | Purpose |
 |-------|----------|---------|
-| [library/devel](https://registry.lab.wangup.org/harbor/projects/1/repositories/devel/artifacts-tab) | [NVIDIA CUDA Image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda?version=13.2.1-cudnn-runtime-ubuntu24.04) | Lab base — CUDA, Python, dev tools |
+| [library/devel](https://registry.lab.wangup.org/harbor/projects/1/repositories/devel/artifacts-tab) | [NVIDIA CUDA Image](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda?version=13.1.1-devel-ubuntu24.04) | Lab base — CUDA, Python, dev tools |
 | [kilin/devel](https://registry.lab.wangup.org/harbor/projects/2/repositories/devel/artifacts-tab) | [library/devel](https://registry.lab.wangup.org/harbor/projects/1/repositories/devel/artifacts-tab) | Maintainer's personal image — adds zsh, nvim, lazygit, tectonic, Claude Code |
 
 If you're unsure where to start, `kilin/devel` is a reasonable default. For first-time setup, see [Development](../onboard/development.md).
@@ -179,7 +179,7 @@ RUN echo 'ALL ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 RUN mkdir -p /var/run/sshd && ssh-keygen -A
 
-RUN mkdir -p $UV_PYTHON_INSTALL_DIR $UV_TOOL_BIN_DIR $UV_CACHE_DIR $VIRTUAL_ENV /workspace \
+RUN mkdir -p $UV_PYTHON_INSTALL_DIR $UV_TOOL_BIN_DIR $UV_CACHE_DIR $VIRTUAL_ENV \
     && uv python install 3.13 \
     && uv venv $VIRTUAL_ENV --python 3.13 \
     && chmod -R 777 /opt $UV_PYTHON_INSTALL_DIR $VIRTUAL_ENV $UV_CACHE_DIR $UV_TOOL_BIN_DIR
@@ -198,7 +198,6 @@ RUN { \
     } > /etc/profile.d/container-env.sh
 # (7)!
 
-WORKDIR /workspace
 CMD ["/bin/bash"]
 ```
 
@@ -220,7 +219,7 @@ The [maintainer's](../../maintainer/team.md#maintainer) personal image built on 
     The Containerfile shown here is for reference only. For the latest version, see the [containerfiles](https://github.com/NTU-CompHydroMet-Lab/containerfiles) repository.
 
 ```dockerfile linenums="1"
-FROM library/devel:0.6-cuda13.1.1
+FROM library/devel:0.9-cuda13.1.1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     zsh locales clang libclang-dev libgraphite2-3 imagemagick ghostscript \

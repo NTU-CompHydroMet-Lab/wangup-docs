@@ -8,7 +8,7 @@ All lab servers run rootless Podman. This page covers the full workflow — pull
 
 ```bash linenums="1"
 podman pull docker.io/ubuntu:24.04
-podman pull registry.lab.wangup.org/library/devel:0.6-cuda13.1.1
+podman pull registry.lab.wangup.org/library/devel:0.9-cuda13.1.1
 podman pull nvcr.io/nvidia/pytorch:25.03-py3
 ```
 
@@ -43,7 +43,7 @@ podman login nvcr.io                   # NVIDIA NGC
 `podman run --rm -it <image> bash` drops you into a shell and the container is **deleted** on exit.
 
 ```bash linenums="1"
-podman run --rm -it registry.lab.wangup.org/library/devel:0.6-cuda13.1.1 bash
+podman run --rm -it registry.lab.wangup.org/library/devel:0.9-cuda13.1.1 bash
 ```
 
 **Common flags**
@@ -69,7 +69,7 @@ A detached container stays alive after you close the terminal — provided linge
 podman run -d --name mydev \
     --device nvidia.com/gpu=all \
     -v $HOME:$HOME \
-    registry.lab.wangup.org/library/devel:0.6-cuda13.1.1
+    registry.lab.wangup.org/library/devel:0.9-cuda13.1.1
 ```
 
 Stop and remove:
@@ -132,7 +132,7 @@ podman exec example-container python --version
 
 SSH is required for VSCode Remote-SSH and for connecting from outside the host server. Three things must be in place:
 
-1. **sshd running in the container** — the `command:` block in the compose file handles this. The script generates host keys on first start, then reuses them on every subsequent start.
+1. **sshd running in the container** — the image's `entrypoint.sh` starts sshd automatically; the compose `command:` is just `sleep infinity` to keep the container alive. sshd generates host keys on first start, then reuses the persisted keys on every subsequent start.
 2. **Port exposed** — the `ports:` entry maps a host port to port 22. Pick an unused port in `10000–65535`.
 3. **Host keys persisted** — the `container-keys` volume mount stores host keys in your home directory. Without persistence, clients see "REMOTE HOST IDENTIFICATION HAS CHANGED" after each recreate because the container generates new keys on every start.
 
