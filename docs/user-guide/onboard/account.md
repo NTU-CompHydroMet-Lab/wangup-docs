@@ -79,8 +79,10 @@ Make sure there is **File Station** on the desktop and whether you can find your
 home directory as shown below.
 ![NAS home](nas-home-path.png){ loading=lazy }
 
-!!! note
-    This initialization need to be done on both `wangup` and `wangup26`.
+!!! warning 
+    This initialization need to be done on both `wangup` and `wangup26`. Login to `wangup` gives you `/home/NAS/homes/${USER}` and login to `wangup26` gives you `/home/NAS/house/${USER}`.
+
+
 ---
 
 ## Login into server

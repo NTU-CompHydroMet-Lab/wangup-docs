@@ -6,62 +6,81 @@ You're on a **remote Linux server**. Your commands run on the server — your la
 
 No Linux experience? Start with the [MDN Command Line Crash Course](https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Environment_setup/Command_line).
 
----
-
-## What's Available
-
-Pre-installed on all servers:
-
-| Tool | Purpose |
-|------|---------|
-| `python3` | Python 3.12 |
-| `uv` | Python package manager |
-| `git` | Version control |
-| `tmux` | Terminal multiplexer |
-| `nvtop` / `nvidia-smi` | GPU monitoring |
-| `htop` | CPU & RAM monitoring |
-| `ncdu` | Disk usage |
-
-See [Tools](../tools.md) for usage.
+The servers come with a standard toolset pre-installed — Python 3.12, `uv`, `git`, `tmux`, and GPU/CPU/disk monitors. See [Tools](../tools.md) for usage.
 
 ---
 
 ## No Root Access
 
-You cannot use `sudo`. This means no `apt install` or system-wide changes.
+You cannot use `sudo`. No `apt install`, no system-wide changes.
 
-For Python packages, use `uv` or `conda`. For anything that requires system-level dependencies, use a container or build from source. See [Development](development.md).
+For Python packages, use `uv` or `pip`. For anything that needs system-level dependencies, use a container — where you have full root. See [Development](development.md).
 
 ---
 
-## Keep Jobs Alive with tmux
+## Sessions Are Ephemeral
 
-SSH sessions end when you close your terminal or lose connection — and any running process dies with it.
+SSH sessions end when you close your terminal or lose connection — and any process running in them dies too.
 
-Use [tmux](../tools.md#tmux) for any job that takes more than a few minutes:
+Use `tmux` for any job longer than a few minutes: start it inside a tmux session, detach, and reconnect later. See [tmux](../tools.md#tmux).
 
-```bash linenums="1"
-tmux new -s work        # Start session
-# ... run your job ...
-# Ctrl+B D to detach
-tmux attach -t work     # Reconnect later
-```
+---
+
+## Shared Machines
+
+Several people are logged in to the same server at once. CPU, RAM, local disk, and GPUs are all shared — one careless job slows everyone down.
+
+- Check load before heavy work — `htop` for CPU and RAM, `nvtop` for GPUs.
+- Don't claim more GPUs than you need.
+- Don't fill local disk — it's limited and shared. Keep large files on NAS.
+- Clean up stray processes and temp files when you finish.
 
 ---
 
 ## GPUs
 
-Only some servers have GPUs. They are for proof-of-concept work — not large-scale training. For serious compute, use [NCHC HPC](../../hpc/overview.md).
+Only some servers have GPUs, and they're for proof-of-concept work — not large-scale training. For serious compute, use [NCHC HPC](../../hpc/overview.md).
 
-Check what's available before starting a job:
-
-```bash linenums="1"
-nvtop                   # Interactive view (recommended)
-nvidia-smi              # Snapshot
-```
-
-To target a specific GPU:
+GPUs are shared. Check usage with [nvtop](../tools.md#nvtop) before starting a job. Target a specific GPU with `CUDA_VISIBLE_DEVICES`:
 
 ```bash linenums="1"
 CUDA_VISIBLE_DEVICES=0 python3 train.py
 ```
+
+---
+
+## Where Your Files Live
+
+Two Synology NAS units are mounted via NFS on every server, plus a local disk on each machine.
+
+| Path | Storage | Capacity | Purpose |
+|------|---------|----------|---------|
+| `/home/NAS/house/<user>` | DS1823xs+ (wangup26) | 35 TB | Primary home |
+| `/home/NAS/data` | DS923+ (wangup) | 83.7 TB | Shared datasets (read-only) |
+| `/home/NAS/homes/<user>` | DS923+ (wangup) | 83.7 TB | Legacy home (being phased out) |
+| `/home/<user>` | Local disk | limited | Per-machine, disposable |
+
+!!! warning 
+    Your NAS homes must be initialized before first use — see [Account Registry](account.md#initialize-nas-storage).
+
+### Keep projects on NAS
+
+Put your project files — including the whole repository — under `/home/NAS/house/<user>`. It's shared across every server and backed up, so you work on the same files from any machine without copying.
+
+### Local home is disposable
+
+`/home/<user>` is local to one machine — you get a *different* home on each server, and none are shared or backed up. Your NAS directories, by contrast, are identical on every machine. Treat local home as disposable. Keep only:
+
+- Dotfiles and shell config
+- User-installed software
+- Symlinks pointing into your NAS directories
+
+Set up those symlinks in [Development](development.md#set-up-your-workspace) so `~/projects` and `~/datasets` resolve to NAS on every machine.
+
+### Container environments stay fast
+
+A NAS-hosted Python environment is slow — thousands of small package files over NFS make every `import` crawl. The lab container images avoid this: they install the Python environment at `/opt/venv` on the host's local disk, not on NAS. Your code lives on NAS; the environment runs on fast local storage. You get both without doing anything. See [Building Images](../containers/building.md).
+
+---
+
+For storage commands, quotas, and troubleshooting, see [Storage Overview](../storage/overview.md).

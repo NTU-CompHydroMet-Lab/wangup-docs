@@ -1,7 +1,5 @@
 # Tools
 
-🚧
-
 Tools available on the servers. Click the tool name for official documentation.
 
 ---
@@ -75,7 +73,7 @@ Interactive disk usage viewer. Useful for finding what's eating your NAS quota.
 
 ```bash linenums="1"
 ncdu ~                          # Scan your home directory
-ncdu /home/NAS/homes/$USER      # Scan your NAS home
+ncdu /home/NAS/house/$USER      # Scan your NAS home
 ```
 
 ---

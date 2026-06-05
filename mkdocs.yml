@@ -80,13 +80,12 @@ nav:
 
   - User Guide:
     - Quick Reference: user-guide/quick-reference.md
-    # - Tools: user-guide/tools.md
+    - Tools: user-guide/tools.md
     - FAQ: user-guide/faq.md
     # - Rules of Conduct: user-guide/rules-of-conduct.md
     - New Users:
       - Account Registry: user-guide/onboard/account.md
       - Environment: user-guide/onboard/environment.md
-      - Storage: user-guide/onboard/storage.md
       - Development: user-guide/onboard/development.md
       #- First Program: user-guide/onboard/first-program.md
       #- Environments: user-guide/onboard/environments.md
@@ -113,8 +112,9 @@ nav:
 
   - HPC:
     - Overview: hpc/overview.md
-    - SLURM Job Scheduler: hpc/slurm.md
-    - Environment Modules: hpc/modules.md
+    # - Nano5:  
+    # - SLURM Job Scheduler: hpc/slurm.md
+    # - Environment Modules: hpc/modules.md
 
   - Maintainer:
     - Overview: maintainer/overview/overview.md

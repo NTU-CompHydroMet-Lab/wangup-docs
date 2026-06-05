@@ -2,9 +2,9 @@
     The compose file shown here is for reference only. For the latest version and a ready-to-copy file, see the [containerfiles](https://github.com/NTU-CompHydroMet-Lab/containerfiles) repository.
 
 ```yaml linenums="1" title="compose.yml"
+x-podman:
+  in_pod: false
 services:
-  x-podman:
-    in_pod: false
   dev:
     image: registry.lab.wangup.org/kilin/devel:0.13-cuda13.1.1
     container_name: example-container # (1)!
