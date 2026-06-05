@@ -6,17 +6,18 @@ x-podman:
   in_pod: false
 services:
   dev:
-    image: registry.lab.wangup.org/kilin/devel:0.13-cuda13.1.1
-    container_name: example-container # (1)!
-    hostname: ripper-pod # (2)!
-    init: true # (3)!
-    userns_mode: "keep-id" # (4)!
+    image: registry.lab.wangup.org/kilin/devel:0.16-cuda13.1.1
+    container_name: bigdata 
+    hostname: ripper-pod
+    init: true
+    userns_mode: "keep-id"
+    working_dir: "${HOME}"
+    shm_sizes: '32gb'
     group_add:
-      - keep-groups # (5)!
-    shm_size: '32gb'
-
+      - keep-groups
+    
     ports:
-      - "12345:22" # (6)!
+      - "12345:22"
 
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
@@ -25,28 +26,13 @@ services:
 
     volumes:
       - ${HOME}:${HOME}                     # User home
-      - .:/workspace                        # Project directory
-      - /home/NAS/data:/home/NAS/data:ro    # NAS data
-      - /home/NAS/homes:/home/NAS/homes     # NAS home
-      - /home/NAS/house:/home/NAS/house     # NAS26 home
+      - /home/NAS/:/home/NAS/               # NAS data
       - ${HOME}/.cache/uv:/opt/uv-cache     # UV cache
       - ${HOME}/.ssh/container-keys:/etc/ssh/host_keys #
       - /var/lib/sss/pipes:/var/lib/sss/pipes
       - /var/lib/sss/mc:/var/lib/sss/mc:ro
 
-    working_dir: /workspace
-
-    command: >
-      sh -c "
-        if [ ! -f /etc/ssh/host_keys/ssh_host_rsa_key ]; then
-          sudo ssh-keygen -A &&
-          sudo cp /etc/ssh/ssh_host_* /etc/ssh/host_keys/
-        else
-          sudo cp /etc/ssh/host_keys/ssh_host_* /etc/ssh/
-        fi &&
-        sudo /usr/sbin/sshd -D -e &&
-        sleep infinity
-      "
+    command: ["sleep", "infinity"] 
     devices:
       - nvidia.com/gpu=all
 ```
