@@ -58,14 +58,14 @@ Two Synology NAS units are mounted via NFS on every server, plus a local disk on
 | `/home/NAS/house/<user>` | DS1823xs+ (wangup26) | 35 TB | Primary home |
 | `/home/NAS/data` | DS923+ (wangup) | 83.7 TB | Shared datasets (read-only) |
 | `/home/NAS/homes/<user>` | DS923+ (wangup) | 83.7 TB | Legacy home (being phased out) |
-| `/home/<user>` | Local disk | limited | Per-machine, disposable |
+| `/home/<user>` | Local SSD | ~1.5 TB | Per-machine, disposable |
 
 !!! warning 
     Your NAS homes must be initialized before first use — see [Account Registry](account.md#initialize-nas-storage).
 
 ### Keep projects on NAS
 
-Put your project files — including the whole repository — under `/home/NAS/house/<user>`. It's shared across every server and backed up, so you work on the same files from any machine without copying.
+Put your project files — including the whole repository — under `/home/NAS/house/<user>`. It's shared across every server, so you work on the same files from any machine without copying. NAS storage is **not** a backup, though — keep code in git. See [Storage Overview](../storage/overview.md#data-safety).
 
 ### Local home is disposable
 

@@ -88,8 +88,6 @@ nav:
       - Account Registry: user-guide/onboard/account.md
       - Environment: user-guide/onboard/environment.md
       - Development: user-guide/onboard/development.md
-      #- First Program: user-guide/onboard/first-program.md
-      #- Environments: user-guide/onboard/environments.md
     - Containers:
       - Introduction: user-guide/containers/intro.md
       - Images: user-guide/containers/lab-images.md
@@ -98,6 +96,7 @@ nav:
       - Building Images: user-guide/containers/building.md
     - Storage:
       - Overview: user-guide/storage/overview.md
+      - Transferring Data: user-guide/storage/transfer.md
       - Shared Datasets: user-guide/storage/datasets.md
       - Synology Web UI: user-guide/storage/synology.md
     # - Services:
@@ -108,23 +107,21 @@ nav:
     #   - Synology Web UI: user-guide/storage/synology.md
     #   - InfluxDB:  user-guide/service/influxdb.md
 
-  # - Infras:
-    - Specification: infrastructures/computing-specs.md
-
   - HPC:
     - Overview: hpc/overview.md
-    - iService: hpc/iservice.md
-    - Slurm: hpc/slurm.md
-    - Nano4:
-      - Overview: hpc/nano4/overview.md
-    - Nano5:
-      - Overview: hpc/nano5/overview.md
-    - Forerunner1:
-      - Overview: hpc/f1/overview.md
-    - twnia3:
-      - Overview: hpc/twnia3/overview.md
-    - TWCC:
-      - Overview: hpc/twcc/overview.md
+    - Quickstart: hpc/quickstart.md
+    - Concepts:
+      - Architecture: hpc/architecture.md
+      - Job Scheduling (Slurm): hpc/slurm.md
+      - Containers: hpc/containers.md
+      - File Transfer: hpc/transfer.md
+      - Getting Access (iService): hpc/iservice.md
+    - Systems:
+      - Nano4: hpc/nano4/overview.md
+      - Nano5: hpc/nano5/overview.md
+      - Forerunner1: hpc/f1/overview.md
+      - Twnia3: hpc/twnia3/overview.md
+      - TWCC: hpc/twcc/overview.md
 
   - Maintainer:
     - Overview: maintainer/overview/overview.md

@@ -29,25 +29,25 @@ hide:
 
     ---
 
-    Get started with lab access and credentials
+    Get lab access, SSH keys, and NAS storage
 
-    [:octicons-arrow-right-24: Account Setup](user-guide/onboard/setting-up.md)
+    [:octicons-arrow-right-24: Account Registry](user-guide/onboard/account.md)
 
--   :material-connection:{ .lg .middle } __Connect and Setup__
-
-    ---
-
-    Learn how to access servers and set up your environment
-
-    [:octicons-arrow-right-24: Setting Up](user-guide/onboard/setting-up.md)
-
--   :material-microsoft-visual-studio-code:{ .lg .middle } __Run Your First Program__
+-   :material-server:{ .lg .middle } __Understand Your Environment__
 
     ---
 
-    Get started with Python on the servers
+    The servers, storage layout, and shared-machine rules
 
-    [:octicons-arrow-right-24: First Program](user-guide/onboard/first-program.md)
+    [:octicons-arrow-right-24: Environment](user-guide/onboard/environment.md)
+
+-   :material-microsoft-visual-studio-code:{ .lg .middle } __Start Developing__
+
+    ---
+
+    Containers, VSCode, and your project on NAS
+
+    [:octicons-arrow-right-24: Development](user-guide/onboard/development.md)
 
 <!-- -   :material-linux:{ .lg .middle } __Learn the Environment__ -->
 <!---->

@@ -1,10 +1,13 @@
 # Synology Web UI
 
-A browser-based interface for managing files and account settings without SSH.
+Browser access to the NAS — the same files you see at `/home/NAS/...`, without SSH. Use it for quick browsing, previewing files, sharing with outside collaborators, and managing your account. For bulk transfers use [rsync/scp](transfer.md) instead — the Web UI runs over HTTPS and can't resume.
 
-**DS923+** (data): [wangup.synology.me](https://wangup.synology.me) or [QuickConnect](https://quickconnect.to/wangup)
+**Which NAS:**
 
-**DS1823xs+** (primary home): [QuickConnect](https://quickconnect.to/wangup26)
+| NAS | Holds | Login |
+|-----|-------|-------|
+| wangup26 (DS1823xs+) | Your home (`/home/NAS/house`) | [QuickConnect](https://quickconnect.to/wangup26) |
+| wangup (DS923+) | Shared data, legacy homes | [wangup.synology.me](https://wangup.synology.me) · [QuickConnect](https://quickconnect.to/wangup) |
 
 Login with your lab username and password.
 
@@ -14,13 +17,10 @@ Login with your lab username and password.
 
 Browse, manage, and transfer files through the browser.
 
-**Download files to your local machine** — right-click any file or folder → **`Download`**. Useful for pulling results without setting up `scp`.
-
-**Upload files** — drag and drop into File Station, or use the **`Upload`** button.
-
-**Preview** — images, PDFs, and videos can be previewed directly in the browser without downloading.
-
-**Share files** — right-click a file → **`Share`** → create a temporary download link. Send this to collaborators outside the lab without giving them server access.
+- **Download** — right-click any file or folder → **`Download`**.
+- **Upload** — drag and drop, or the **`Upload`** button.
+- **Preview** — images, PDFs, and videos open directly in the browser.
+- **Share with outsiders** — right-click → **`Share`** → create a temporary download link. Send it to collaborators who have no server account. This is the one thing the CLI can't do.
 
 ---
 
@@ -28,15 +28,13 @@ Browse, manage, and transfer files through the browser.
 
 Click your username (top right) → **`Personal`**:
 
-- **Change password** — All password are managed by our [LDAP server](https://account.lab.wangup.org)
-- **2-Factor Authentication** — manage your OTP settings (enable, disable, re-enroll)
+- **Change password** — all passwords are managed by the [LDAP server](https://account.lab.wangup.org).
+- **2-Factor Authentication** — manage your OTP settings (enable, disable, re-enroll).
 
 ---
 
-## Specific Features
+## Remote Drives (Google, OneDrive, Dropbox)
 
-### Remote Drives (Google, OneDrive, DropBox)
+Mount an external cloud drive into File Station: **File Station** → **Tools** → **Remote Connection** → **Connection Setup**, then follow the prompts.
 
-Visit **File Station** -> **Tools** -> **Remote Connection** -> **Connection Setup**.
-And follow the instruction from the WebUI.
 ![Synology Remote Setup](syn-remote-setup.png)

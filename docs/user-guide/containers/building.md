@@ -46,6 +46,15 @@ volumes:
 
 This overrides `UV_CACHE_DIR` to point at your host's cache on the server's local disk. When you throw away and recreate a container, `uv sync` restores the full environment from local cache in seconds — no re-downloading.
 
+To reuse one cache across **every machine you log into**, point the mount at your NAS home instead:
+
+```yaml linenums="1" title="compose.yml"
+volumes:
+  - /home/NAS/house/<user>/uv-cache:/opt/uv-cache
+```
+
+You then download each package only once for yourself — every later `uv sync`, on any machine, restores from it. It's slightly slower than a local cache. This is per-user; a single lab-wide shared cache isn't recommended, since concurrent writes from many users cause trouble.
+
 ### Workflow
 
 ```bash linenums="1" title="In the Container"

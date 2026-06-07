@@ -96,7 +96,7 @@ Host <Server-Nickman>
   IdentityFile <Path-of-my-key> 
 ```
 
-To add all server listed in [**Server Specs**](../infrastructures/computing/computing-specs.md).
+To add all server listed in [**Server Specs**](../../infrastructures/computing-specs.md).
 Please refer this following content to your **`~/.ssh/config`**.
 Change the **`User`** to your own username.
 

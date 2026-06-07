@@ -6,6 +6,14 @@
 
 Taiwan's national HPC systems provide massive computational resources for research. This guide helps you transition from lab servers to HPC.
 
+## Rules
+
+These apply to every system in this section:
+
+- Don't run compute on a login node — it's shared and resource-limited. Submit a job instead.
+- No `sudo`. Use a container ([Apptainer](containers.md)) for anything that needs root.
+- Don't poll `squeue` in a loop (e.g. `watch squeue`) — use Slurm's email notifications for job status.
+
 ## Why Use HPC?
 
 [Content to be added: When lab resources aren't enough]
