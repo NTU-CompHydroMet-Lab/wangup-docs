@@ -14,7 +14,7 @@ services:
     group_add:
       - keep-groups # (5)!
     working_dir: "${HOME}"
-    shm_sizes: '32gb'
+    shm_size: '32g'
 
     ports:
       - "12345:22" # (6)!
@@ -25,9 +25,12 @@ services:
       - TERM=xterm-kitty
 
     volumes:
-      - ${HOME}:${HOME}                     # User home
-      - /home/NAS/:/home/NAS/               # NAS data
-      - ${HOME}/.cache/uv:/opt/uv-cache     # (7)!
+      - ${HOME}:${HOME}                         # User home
+      - /home/NAS/homes:/home/NAS/homes         # wangup NAS home 
+      - /home/NAS/data:/home/NAS/data           # wangup NAS data
+      - /home/NAS/house:/home/NAS/house         # wangup26 NAS home 
+      - /home/NAS/datasets:/home/NAS/datasets   # wangup NAS data
+      - ${HOME}/.cache/uv:/opt/uv-cache         # (7)!
       - ${HOME}/.ssh/container-keys:/etc/ssh/host_keys #
       - /var/lib/sss/pipes:/var/lib/sss/pipes
       - /var/lib/sss/mc:/var/lib/sss/mc:ro
