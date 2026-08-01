@@ -1,0 +1,30 @@
+/* Level 0: Top-level items (e.g., User Guide) - enhanced structure */
+nav[data-md-level="0"] > .md-nav__list > .md-nav__item--active > .md-nav__link {
+    font-size: 1.3em; /* Increase font size */
+    font-weight: 800; /* Very bold */ 
+    text-transform: uppercase; /* Capitalize */
+    letter-spacing: 0.1em;
+    /* margin-top: 10px; */
+}
+
+/* Level 1: Chapter titles (e.g., New Users, Storage) - moderate emphasis */
+nav[data-md-level="1"] > .md-nav__list > .md-nav__item--section > .md-nav__link {
+    font-size: 1em;
+    font-weight: 700;
+    padding-top: 8px;
+    border-top: 1px solid #eee; /* 用一條淡淡的線來區隔章節 */
+}
+
+/* Highlight the current page (e.g., Quick Reference) - color focus */
+.md-nav__link--active {
+    font-weight: bold;
+    background-color: rgba(0, 122, 204, 0.05); /* 淡淡的背景色 */
+    /* border-left: 3px solid #007acc; /* 左側邊框提示 */ */
+    padding-left: 10px;
+}
+
+/* Color focus on hover */
+.md-nav__link:hover {
+    color: #007acc;
+    background-color: rgba(0, 122, 204, 0.03);
+}
