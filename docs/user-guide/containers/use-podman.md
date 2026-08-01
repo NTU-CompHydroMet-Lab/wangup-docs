@@ -218,4 +218,4 @@ podman volume prune      # remove volumes not attached to any container
 ```
 
 !!! warning
-    `system prune -a` removes all images not currently in use. Re-pulling large CUDA-based images (10–20 GB each) is slow and counts against bandwidth. Only run this when you are certain you won't need those images again soon.
+    `system prune -a` removes all images not currently in use. Lab-registry images come back fast over the internal network, but external ones (Docker Hub, NGC) are large (10–20 GB) and slow to re-pull. Only run this when you're sure you won't need those images again soon.

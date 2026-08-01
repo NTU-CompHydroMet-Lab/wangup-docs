@@ -8,7 +8,7 @@ Fast lookup for addresses, paths, and common commands. Follow the links for deta
 
 | Alias | Public IP | Internal IP | GPU |
 |-------|-----------|-------------|-----|
-| `up3080` | 140.112.13.236 | — | RTX 3080 Ti (12 GB) |
+| `up3080` | 140.112.13.236 | 192.168.250.236 | RTX 3080 Ti (12 GB) |
 | `up3090` | 140.112.13.64 | 192.168.250.64 | RTX 3090 (24 GB) |
 | `up4090` | 140.112.13.91 | 192.168.250.91 | RTX 4090 (24 GB) |
 | `ripper` | — | 192.168.250.100 | — (Threadripper) |
